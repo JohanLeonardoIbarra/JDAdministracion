@@ -103,13 +103,13 @@ public class JFAdministracion extends JFrame implements ActionListener
     
     public void actionPerformed(ActionEvent e)
     {
-        String comando = e.getActionComand();
+        String comando = e.getActionCommand();
         
         if (comando.equals("Calcular"))
         {
             
         }
-        if (comado.equals("Limpiar"))
+        if (comando.equals("Limpiar"))
         {
         
         }
