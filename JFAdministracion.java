@@ -104,10 +104,35 @@ public class JFAdministracion extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e)
     {
         String comando = e.getActionCommand();
+          
+        
         
         if (comando.equals("Calcular"))
         {
+            Propiedad p = new Propiedad(t1.getText(), t2.getText(), Double.parseDouble(t3.getText()), Integer.parseInt(t1.getText()));
             
+            Double pago = 0.00;
+            
+            if(Double.parseDouble(t3.getText()) <= 120)
+            {
+                pago = 107000.00;
+            }
+            else if (Double.parseDouble(t3.getText()) <= 250)
+            {
+                pago = 155000.00;
+            }
+            else if (Double.parseDouble(t3.getText()) <= 320)
+            {
+                pago = 222916.67;
+            }
+            else {pago = 285333.33;}
+            
+            //if (c1.isSelected() == true){p.setDescProntoPago(true);}
+            //if (c2.isSelected() == true){p.setDescPlataforma(true);}
+            
+            lblValorP.setText(pago.toString());
+            
+            //if (p.getDescPlataforma()== true){System.out.println("asaas");}
         }
         if (comando.equals("Limpiar"))
         {
