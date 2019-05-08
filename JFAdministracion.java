@@ -12,10 +12,10 @@ import javax.swing.border.*;
 public class JFAdministracion extends JFrame implements ActionListener
 {
     private JPanel p1,p2,p3,p4;
-    private JLabel lblNombre, lblPropietario, lblArea, lblHabitantes, lblValorPagar, lblValorP, lVacio, lVacio2;
+    private JLabel lblNombre, lblPropietario, lblArea, lblHabitantes, lblValorPagar, lblValorP, lVacio;
     private JTextField t1,t2,t3,t4;
     private JCheckBox c1,c2;
-    private JButton b1,b2,b3;
+    private JButton b1,b2,b3,b4;
     Border borde1, borde2, borde3;
     
     JFAdministracion()
@@ -95,7 +95,7 @@ public class JFAdministracion extends JFrame implements ActionListener
         lblValorP.setBorder(new LineBorder(Color.BLACK));
         p4.add(lVacio = new JLabel(""));
         p4.add(b2 = new JButton("Calcular"));
-        p4.add(lVacio2 = new JLabel(""));
+        p4.add(b4 = new JButton("Guardar"));
         p4.add(b3 = new JButton("Limpiar"));
         b2.addActionListener(this);
         b3.addActionListener(this);
@@ -104,14 +104,14 @@ public class JFAdministracion extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e)
     {
         String comando = e.getActionCommand();
-          
-        
-        
+  
         if (comando.equals("Calcular"))
         {
-            Propiedad p = new Propiedad(t1.getText(), t2.getText(), Double.parseDouble(t3.getText()), Integer.parseInt(t1.getText()));
+            Propiedad p = new Propiedad(t1.getText(), t2.getText(), Double.parseDouble(t3.getText()), Integer.parseInt(t4.getText()));
             
             Double pago = 0.00;
+
+            System.out.println(t1.getText() + " " + t2.getText() + " " + t3.getText()+ " " +t4.getText());
             
             if(Double.parseDouble(t3.getText()) <= 120)
             {
@@ -127,20 +127,26 @@ public class JFAdministracion extends JFrame implements ActionListener
             }
             else {pago = 285333.33;}
             
-            //if (c1.isSelected() == true){p.setDescProntoPago(true);}
-            //if (c2.isSelected() == true){p.setDescPlataforma(true);}
+            if (c1.isSelected()){pago -= pago * 0.05;}
+            //if (c2.isSelected()){pago -= pago * 0.10;}
             
             lblValorP.setText(pago.toString());
+        }
+        else if (comando.equals("Limpiar"))
+        {
+            t1.setText("");
+            t2.setText("");
+            t3.setText("");
+            t4.setText("");
+            lblValorP.setText("");
+        }
+        else if(comando.equals("Guardar"))
+        {
             
-            //if (p.getDescPlataforma()== true){System.out.println("asaas");}
-        }
-        if (comando.equals("Limpiar"))
+        }   
+        else if (comando.equals("Buscar"))
         {
-        
-        }
-        if (comando.equals("Buscar"))
-        {
-        
+            
         }
     }
 }
