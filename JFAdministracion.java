@@ -86,7 +86,7 @@ public class JFAdministracion extends JFrame implements ActionListener
         //Elementos panel Descuentos
         
         p3.add(c1 = new JCheckBox("P. Pago", false));
-        p3.add(c1 = new JCheckBox("P. Plataforma", false));
+        p3.add(c2 = new JCheckBox("P. Plataforma", false));
         
         //Elementos panel calcular
         
@@ -107,30 +107,10 @@ public class JFAdministracion extends JFrame implements ActionListener
   
         if (comando.equals("Calcular"))
         {
-            Propiedad p = new Propiedad(t1.getText(), t2.getText(), Double.parseDouble(t3.getText()), Integer.parseInt(t4.getText()));
-            
-            Double pago = 0.00;
-
-            System.out.println(t1.getText() + " " + t2.getText() + " " + t3.getText()+ " " +t4.getText());
-            
-            if(Double.parseDouble(t3.getText()) <= 120)
-            {
-                pago = 107000.00;
-            }
-            else if (Double.parseDouble(t3.getText()) <= 250)
-            {
-                pago = 155000.00;
-            }
-            else if (Double.parseDouble(t3.getText()) <= 320)
-            {
-                pago = 222916.67;
-            }
-            else {pago = 285333.33;}
-            
-            if (c1.isSelected()){pago -= pago * 0.05;}
-            //if (c2.isSelected()){pago -= pago * 0.10;}
-            
-            lblValorP.setText(pago.toString());
+            Propiedad p = new Propiedad(t1.getText(), t2.getText(), Double.parseDouble(t3.getText()), Integer.parseInt(t4.getText()));              
+            if(c1.isSelected() == true){p.setDescPago(true);}
+            if(c2.isSelected() == true){p.setDescPlataforma(true);}
+            lblValorP.setText(p.calcular().toString());
         }
         else if (comando.equals("Limpiar"))
         {

@@ -7,11 +7,12 @@
  */
 public class Propiedad
 {
-    public String nombre;
-    public String propietario;
-    public Double area;
-    public Integer habitantes;
-
+    private String nombre;
+    private String propietario;
+    private Double area;
+    private Integer habitantes;
+    private Boolean descPago = false, descPlataforma = false; 
+    
     public Propiedad(String nombre,String propietario, Double area, 
     Integer habitantes ){
 
@@ -22,36 +23,88 @@ public class Propiedad
 
     }
 
+    //Start GetterSetterExtension Code
+    /**Getter method nombre*/
     public String getNombre(){
-        return nombre;
-    }
+        return this.nombre;
+    }//end method getNombre
 
-    public String getPropietario(){
-        return propietario;
-    }
-
-    public Double getArea(){
-        return area;
-    }
-
-    public Integer getHabitantes(){
-        return habitantes;
-    }
-
+    /**Setter method nombre*/
     public void setNombre(String nombre){
-        this.nombre=nombre;
-    }
+        this.nombre = nombre;
+    }//end method setNombre
 
-    public void setPropietario(){
-        this.propietario=propietario;
-    }
+    /**Getter method propietario*/
+    public String getPropietario(){
+        return this.propietario;
+    }//end method getPropietario
 
-    public void setArea(){
-        this.area=area;
-    }
+    /**Setter method propietario*/
+    public void setPropietario(String propietario){
+        this.propietario = propietario;
+    }//end method setPropietario
 
-    public void setHabitantes(){
-        this.habitantes=habitantes;
-    }
+    /**Getter method area*/
+    public Double getArea(){
+        return this.area;
+    }//end method getArea
 
+    /**Setter method area*/
+    public void setArea(Double area){
+        this.area = area;
+    }//end method setArea
+
+    /**Getter method habitantes*/
+    public Integer getHabitantes(){
+        return this.habitantes;
+    }//end method getHabitantes
+
+    /**Setter method habitantes*/
+    public void setHabitantes(Integer habitantes){
+        this.habitantes = habitantes;
+    }//end method setHabitantes
+
+    /**Getter method descPago*/
+    public Boolean getDescPago(){
+        return this.descPago;
+    }//end method getDescPago
+
+    /**Setter method descPago*/
+    public void setDescPago(Boolean descPago){
+        this.descPago = descPago;
+    }//end method setDescPago
+
+    /**Getter method descPlataforma*/
+    public Boolean getDescPlataforma(){
+        return this.descPlataforma;
+    }//end method getDescPlataforma
+
+    /**Setter method descPlataforma*/
+    public void setDescPlataforma(Boolean descPlataforma){
+        this.descPlataforma = descPlataforma;
+    }//end method setDescPlataforma
+
+    public Double calcular()
+    {
+        Double pago = 0.0;
+        
+        if(area <= 120)
+        {
+            pago = 107000.00;
+        }
+        else if (area <= 250)
+        {
+            pago = 155000.00;
+        }
+        else if (area <= 320)
+        {
+            pago = 222916.67;
+        }
+        else {pago = 285333.33;}
+        
+        if(descPago == true){pago -= pago * 0.05;}
+        if(descPlataforma == true){pago -= pago * 0.10;}
+        
+        return pago;
+    }
 }
