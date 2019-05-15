@@ -12,7 +12,7 @@ import javax.swing.border.*;
 public class JFAdministracion extends JFrame implements ActionListener
 {
     private JPanel p1,p2,p3,p4;
-    private JLabel lblNombre, lblPropietario, lblArea, lblHabitantes, lblValorPagar, lblValorP, lVacio;
+    private JLabel lblNombre, lblPropietario, lblArea, lblHabitantes, lblValorPagar, lblValorP, lVacio, lVacio2;
     private JTextField t1,t2,t3,t4;
     private JCheckBox c1,c2;
     private JButton b1,b2,b3,b4;
@@ -81,7 +81,9 @@ public class JFAdministracion extends JFrame implements ActionListener
         p2.add(lblHabitantes = new JLabel("Habitantes"));
         p2.add(t4 = new JTextField());
         p2.add(b1 = new JButton("Buscar"));
+        p2.add(b4 = new JButton("Guardar"));
         b1.addActionListener(this);
+        b4.addActionListener(this);
         
         //Elementos panel Descuentos
         
@@ -95,7 +97,7 @@ public class JFAdministracion extends JFrame implements ActionListener
         lblValorP.setBorder(new LineBorder(Color.BLACK));
         p4.add(lVacio = new JLabel(""));
         p4.add(b2 = new JButton("Calcular"));
-        p4.add(b4 = new JButton("Guardar"));
+        p4.add(lVacio2 = new JLabel(""));
         p4.add(b3 = new JButton("Limpiar"));
         b2.addActionListener(this);
         b3.addActionListener(this);
